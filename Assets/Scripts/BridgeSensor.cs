@@ -13,12 +13,15 @@ public class BridgeSensor : MonoBehaviour
     public float timedecide = 1f;
     private new Vector3 miles ;
     public GameObject dragon;
+    public GameObject end;
+    public Canvas can;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(dragon);
 
-        miles = dragon.transform.localPosition - camera.transform.localPosition;
+       // miles = dragon.transform.localPosition - camera.transform.localPosition;
+        miles = new Vector3(0f, -3.5f, -2.4f);
     }
 
     // Update is called once per frame
@@ -42,8 +45,10 @@ public class BridgeSensor : MonoBehaviour
             Debug.Log("stay");
             if (new_time - time > timedecide)
             {
-                Application.Quit();
-                
+                // Application.Quit();
+                GameObject temp = Instantiate(end);
+                temp.transform.SetParent(can.transform, true);
+                Destroy(this);
                 Debug.Log("die");
             }
 

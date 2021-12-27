@@ -9,6 +9,8 @@ public class dragon : MonoBehaviour
     float time;
     public float miles = 10f;
     GameObject camera;
+    public GameObject end;
+    public Canvas can;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,9 @@ public class dragon : MonoBehaviour
         {
             
             Debug.Log("die");
+            GameObject temp = Instantiate(end);
+            temp.transform.SetParent(can.transform, true);
+            Destroy(this);
         }
     }
     

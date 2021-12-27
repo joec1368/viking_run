@@ -22,4 +22,5 @@ public class exit_game : MonoBehaviour, IPointerClickHandler
     {
         
     }
+    
 }
